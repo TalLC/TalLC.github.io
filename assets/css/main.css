@@ -1,0 +1,6 @@
+@import url(w3.css);
+@import url(theme.css);
+
+body  {
+  background-color: var(--main-color-background);
+}
