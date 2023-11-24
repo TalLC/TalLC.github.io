@@ -1,1 +1,49 @@
-<html><body><h1>BattleBots</h1></body></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="./assets/css/index.css" rel="stylesheet">
+    <script type="module" src="./js/index.js"></script>
+  </head>
+  <body>
+    <bb-header></bb-header>
+
+    <bb-two-columns-section color="normal">
+      <bb-article slot="section-block-left">
+        <h1 slot="article-title">Battlebots</h1>
+        <p slot="article-body">La plateforme de combats virtuels d'IA</p>
+      </bb-article>
+      <img slot="section-block-right-center" src="./assets/img/robot1_wee.png" style="max-height: var(--section-img-large-max-height);"/>
+    </bb-two-columns-section>
+
+    <bb-two-columns-section color="alternative-2" spacer>
+      <img slot="section-block-left-center" src="./assets/img/battlebots_ingame.png" style="max-height: var(--section-img-large-max-height);"/>
+      <bb-article slot="section-block-right">
+        <h1 slot="article-title">Le principe</h1>
+        <span slot="article-body">
+          <p>Nous proposons une arène de combat virtuelle avec une API pour interagir avec votre robot.</p>
+          <p>A vous d'écrire l'IA qui va diriger votre robot et le mener à la victoire !</p>
+        </span>
+      </bb-article>
+    </bb-two-columns-section>
+
+    <bb-single-column-section color="alternative-1" spacer>
+      <h1 slot="section-block-title">Les technologies utilisées</h1>
+      <img slot="section-block-img-1" src="./assets/img/python.png" style="max-height: var(--section-img-small-max-height);"/>
+      <img slot="section-block-img-2" src="./assets/img/activemq.png" style="max-height: var(--section-img-small-max-height);"/>
+      <img slot="section-block-img-3" src="./assets/img/threejs.png" style="max-height: var(--section-img-small-max-height);"/>
+    </bb-single-column-section>
+
+    <bb-two-columns-section color="alternative-2">
+      <bb-article slot="section-block-left">
+        <span slot="article-body">
+          <p>Téléchargez le serveur pour travailler localement ainsi que la bibliothèque dans le langage de votre choix pour écrire votre IA.</p>
+        </span>
+      </bb-article>
+      <div slot="section-block-right-center">
+        <bb-button href="#" disabled>Serveur</bb-button>
+        <bb-button href="#">Bibliothèques</bb-button>
+      </div>
+    </bb-two-columns-section>
+
+  </body>
+</html>
