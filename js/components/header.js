@@ -3,17 +3,22 @@ import {html, css, LitElement} from '../lib/lit-element.js';
 class HeaderElement extends LitElement {
   static styles = css`
       :host {
+        position: fixed;
+        width: 100%;
+        top: 0;
         background-color: var(--main-color-background);
         font-family: var(--main-font-alternative);
         font-size: var(--main-font-size-alternative);
       }
+
       .header {
-        min-height: 64px;
-        margin-top: 16px;
-        margin-bottom: 16px;
+        min-height: var(--header-height);
+        margin-top: var(--header-margin);
+        margin-bottom: var(--header-margin);
       }
+
       img {
-        max-width: 20vw;
+        max-width: var(--header-logo-width);
       }
   `;
 

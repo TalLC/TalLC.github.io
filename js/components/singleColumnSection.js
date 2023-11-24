@@ -31,14 +31,11 @@ class SingleColumnSectionElement extends LitElement {
     .centered {
       text-align: center;
     }
-    .spacer {
-      margin-bottom: 32px;
-    }
   `;
 
   static properties = {
     color: {type: String},
-    spacer: {type: Boolean}
+    spacer: {type: Number}
   };
 
   constructor() {
@@ -49,14 +46,10 @@ class SingleColumnSectionElement extends LitElement {
     return `section-${this.color}`;
   }
 
-  getSpacerClass() {
-    return this.spacer ? "spacer" : "";
-  }
-
   render() {
     return html`
       <link href="./assets/css/w3.css" rel="stylesheet">
-      <div id="section" class="${this.getColorClass()} ${this.getSpacerClass()} w3-container">
+      <div id="section" class="${this.getColorClass()} w3-container" style="padding-bottom: ${this.spacer}px;">
         <slot name="section-block-title" class="section-title"></slot>
         <div class="w3-cell-row">
           <slot name="section-block-body"></slot>
