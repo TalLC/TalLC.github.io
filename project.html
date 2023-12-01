@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="./assets/css/project.css" rel="stylesheet">
+    <script type="module" src="./js/project.js"></script>
+  </head>
+  <body>
+    <div id="page-container">
+
+      <bb-header id="header"></bb-header>
+    
+      <div id="content-wrap">
+
+        <bb-single-column-section color="normal" caret="left">
+          <h1 slot="section-block-title">Le projet</h1>
+        </bb-single-column-section>
+
+        <bb-two-columns-section color="alternative-2" caret="right" spacerBottom="64" spacerTop="64">
+          <div slot="section-block-left-center">
+            <img src="./assets/img/battlebots_debug.png" onclick="document.getElementById('modal01').style.display='block'" class="w3-hover-opacity" style="cursor:zoom-in; max-height: var(--section-img-large-max-height);"/>
+            <div id="modal01" class="w3-modal w3-animate-zoom" onclick="this.style.display='none'">
+              <a href="./assets/img/battlebots_debug-xl.png">
+                <img src="./assets/img/battlebots_debug-xl.png" class="w3-modal-content">
+              </a>
+            </div>
+          </div>
+
+          <bb-article slot="section-block-right">
+            <span slot="article-body">
+              <p>
+                Le projet Battlebots a commencé en été 2022 avec pour objectif de fournir une plateforme de combat virtuelle où les joueurs devront écrire leur IA pour interagir avec leur robot sur le champs de bataille.
+              </p>
+            </span>
+          </bb-article>
+        </bb-two-columns-section>
+
+        <bb-single-column-section color="alternative-1" spacerBottom="32" spacerTop="32">
+          <h1 slot="section-block-title">Détails techniques</h1>
+          <span slot="section-block-text">
+            <p>Le serveur de l'application est écrit en Python 3 et le rendu 3D utilise la bibliothèque ThreeJS.</p>
+            <p>Les informations envoyées aux IA utilisent les files de messages STOMP et MQTT mises à disposition par ActiveMQ.</p>
+            <p>Les joueurs interagissent avec leur robot à l'aide des bibliothèques fournies dans plusieurs langages qui effectueront les appels à l'API Rest du serveur.</p>
+          </span>
+        </bb-single-column-section>
+
+        <footer id="footer">CGI</footer>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -7,9 +7,11 @@ class ButtonElement extends LitElement {
       justify-content: center;
     }
 
-    .button-size {
+    .button-specs {
       width: 120px;
       margin: 5px;
+      white-space: normal;
+      word-wrap: break-word;
     }
   `;
 
@@ -29,7 +31,7 @@ class ButtonElement extends LitElement {
   render() {
     return html`
       <link href="./assets/css/w3.css" rel="stylesheet">
-      <a class="w3-button w3-round-large ${this.getColorClass()} button-size" href="${this.href}">${this.textContent}</a>
+      <a class="w3-button w3-round-large ${this.getColorClass()} button-specs" href="${this.href}">${this.textContent}</a>
     `;
   }
 }
