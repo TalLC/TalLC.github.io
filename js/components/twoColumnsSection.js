@@ -1,55 +1,16 @@
 import {html, css, LitElement} from '../lib/lit-element.js';
+import ColumnSectionElement from './columnSection.js'
 
-class TwoColumnsSectionElement extends LitElement {
-
-  static styles = css`
-    #section {
-      padding-left: 15vw;
-      padding-right: 15vw;
-      padding-top: 32px;
-      padding-bottom: 0px;
-    }
-
-    .section-title {
-      font-family: var(--main-font-alternative);
-      font-size: var(--main-font-alternative-size);
-    }
-
-    .section-normal {
-      background-color: var(--section-color-background);
-      color: var(--section-color-text);
-    }
-    .section-alternative-1 {
-      background-color: var(--section-color-background-alternative-1);
-      color: var(--section-color-text-alternative-1);
-    }
-    .section-alternative-2 {
-      background-color: var(--section-color-background-alternative-2);
-      color: var(--section-color-text-alternative-2);
-    }
-
-    .centered {
-      text-align: center;
-    }
-  `;
-
-  static properties = {
-    color: {type: String},
-    spacer: {type: Number}
-  };
+class TwoColumnsSectionElement extends ColumnSectionElement {
 
   constructor() {
     super();
   }
  
-  getColorClass() {
-    return `section-${this.color}`;
-  }
-
   render() {
     return html`
       <link href="./assets/css/w3.css" rel="stylesheet">
-      <div id="section" class="${this.getColorClass()} w3-container" style="padding-bottom: ${this.spacer}px;">
+      <div id="section" class="${this.getColorClass()} w3-container" style="padding-bottom: ${this.spacerBottom}px; padding-top: ${this.spacerTop}px;">
         <div class="w3-cell-row">
           <div class="w3-half w3-mobile">
             <slot name="section-block-left"></slot>
@@ -68,6 +29,11 @@ class TwoColumnsSectionElement extends LitElement {
           </div>
         </div>
       </div>
+      <span class="${this.getCaretClass()}">
+        <svg height="32" width="64">
+          <polygon points="0,0 32,32 64,0" style="fill:var(--section-color-background${this.color === 'normal' ? '' : '-' + this.color});" />
+        </svg> 
+      </span>
     `;
   }
   

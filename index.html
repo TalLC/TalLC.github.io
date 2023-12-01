@@ -7,14 +7,10 @@
   <body>
     <div id="page-container">
 
-      <!-- WIP -->
-      <bb-wip></bb-wip>
-      <!-- WIP -->
-
       <bb-header id="header"></bb-header>
 
       <div id="content-wrap">
-        <bb-two-columns-section color="normal">
+        <bb-two-columns-section color="normal" caret="left" spacerTop="32">
           <bb-article slot="section-block-left">
             <h1 slot="article-title">Battlebots</h1>
             <p slot="article-body">La plateforme de combats virtuels d'IA</p>
@@ -22,7 +18,7 @@
           <img slot="section-block-right-center" src="./assets/img/robot1_wee.png" style="max-height: var(--section-img-large-max-height);"/>
         </bb-two-columns-section>
     
-        <bb-two-columns-section color="alternative-2" spacer="32">
+        <bb-two-columns-section color="alternative-2" caret="right" spacerBottom="32" spacerTop="32">
           <img slot="section-block-left-center" src="./assets/img/battlebots_ingame.png" style="max-height: var(--section-img-large-max-height);"/>
           <bb-article slot="section-block-right">
             <h1 slot="article-title">Principe</h1>
@@ -33,22 +29,22 @@
           </bb-article>
         </bb-two-columns-section>
     
-        <bb-single-column-section color="alternative-1" spacer="32">
+        <bb-single-column-section color="alternative-1" caret="left" spacerBottom="32" spacerTop="32">
           <h1 slot="section-block-title">Technologies utilisées</h1>
           <img slot="section-block-img-1" src="./assets/img/python.png" style="max-height: var(--section-img-small-max-height);"/>
           <img slot="section-block-img-2" src="./assets/img/activemq.png" style="max-height: var(--section-img-small-max-height);"/>
           <img slot="section-block-img-3" src="./assets/img/threejs.png" style="max-height: var(--section-img-small-max-height);"/>
         </bb-single-column-section>
     
-        <bb-two-columns-section color="alternative-2" spacer="128">
+        <bb-two-columns-section color="alternative-2" spacerBottom="128" spacerTop="32">
           <bb-article slot="section-block-left">
             <span slot="article-body">
               <p>Téléchargez le serveur pour travailler localement ainsi que la bibliothèque dans le langage de votre choix pour écrire votre IA.</p>
             </span>
           </bb-article>
           <div slot="section-block-right-center">
-            <bb-button href="#" disabled>Serveur</bb-button>
-            <bb-button href="#" disabled>Bibliothèques</bb-button>
+            <bb-button href="downloads.html#downloads-server">Serveur</bb-button>
+            <bb-button href="downloads.html#downloads-libs">Bibliothèques</bb-button>
           </div>
         </bb-two-columns-section>
         <footer id="footer">CGI</footer>

@@ -33,8 +33,6 @@
   --main-font-alternative: "VT323";
   --main-font-size-alternative: 16pt;
 
-  
-
   --section-color-background: #de0f3c;
   --section-color-text: white;
   
@@ -44,8 +42,12 @@
   --section-color-background-alternative-2: black;
   --section-color-text-alternative-2: white;
 
+  --section-padding-lr: 15vw;
+
   --section-img-small-max-height: 100px;
   --section-img-large-max-height: 200px;
+
+  --section-caret-margin: 18vw;
 
   --header-height: 64px;
   --header-margin: 12px;
