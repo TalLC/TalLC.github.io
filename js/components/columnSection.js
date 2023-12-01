@@ -4,8 +4,8 @@ class ColumnSectionElement extends LitElement {
 
   static styles = css`
     #section {
-      padding-left: 15vw;
-      padding-right: 15vw;
+      padding-left: var(--section-padding-lr);
+      padding-right: var(--section-padding-lr);
       padding-top: 0;
       padding-bottom: 0;
       text-align: justify;

@@ -21,10 +21,6 @@ class SingleColumnSectionElement extends ColumnSectionElement {
             <slot name="section-block-img-3"></slot>
           </div>
 
-          <div class="w3-container w3-cell w3-mobile">
-            <slot name="section-block-text"></slot>
-          </div>
-
         <!--
           <div class="w3-container w3-cell  w3-cell-middle w3-mobile">
             <slot name="section-block-img-2"></slot>

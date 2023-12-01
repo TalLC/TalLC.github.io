@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="./assets/css/doc-server.css" rel="stylesheet">
+    <script type="module" src="./js/doc-server.js"></script>
+  </head>
+  <body>
+    <div id="page-container">
+
+      <bb-header id="header"></bb-header>
+    
+      <div id="content-wrap">
+
+        <bb-single-column-section color="normal" caret="left">
+          <h1 slot="section-block-title">Documentation serveur</h1>
+        </bb-single-column-section>
+
+        <bb-single-column-section color="alternative-2" spacerBottom="32" spacerTop="32">
+          <p slot="section-block-body">
+            Le serveur peut être démarré de plusieurs façons. Soit en le démarrant depuis les sources Python, soit en créant un conteneur docker.
+          </p>
+        </bb-single-column-section>
+
+        <div class="w3-row tabheader">
+          <a href="javascript:void(0)" onclick="openTab(event, 'manual');">
+            <div class="w3-half tablink w3-bottombar w3-hover-light-grey w3-padding">Installation manuelle</div>
+          </a>
+          <a href="javascript:void(0)" onclick="openTab(event, 'docker');">
+            <div class="w3-half tablink w3-bottombar w3-hover-light-grey w3-padding">Lancement via Docker</div>
+          </a>
+        </div>
+      
+        <div id="manual" class="w3-container w3-gray tabcontent" style="display:none; min-height: 100vh;">
+          <!-- <bb-article slot="section-block-right">
+            <h2 slot="article-title">Installation manuelle</h2>
+            <span slot="article-body">
+              <p>Nous proposons une arène de combat virtuelle avec une API pour interagir avec votre robot.</p>
+              <p>A vous d'écrire l'IA qui va diriger votre robot et le mener à la victoire !</p>
+            </span>
+          </bb-article> -->
+        </div>
+      
+        <div id="docker" class="w3-container w3-gray tabcontent" style="display:none; min-height: 100vh;">
+          <iframe src="./assets/doc/Configuration du serveur.html" style="height:100vh;width:100vw;border:none;" title="Documentation serveur"></iframe>
+        </div>
+
+        <footer id="footer">CGI</footer>
+      </div>
+    </div>
+
+
+    <script>
+      function openTab(evt, tabName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" w3-border-red", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.firstElementChild.className += " w3-border-red";
+      }
+    </script>
+
+  </body>
+</html>

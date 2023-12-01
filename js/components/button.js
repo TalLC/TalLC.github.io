@@ -11,7 +11,6 @@ class ButtonElement extends LitElement {
       width: 120px;
       margin: 5px;
       white-space: normal;
-      word-wrap: break-word;
     }
   `;
 

@@ -42,6 +42,8 @@
   --section-color-background-alternative-2: black;
   --section-color-text-alternative-2: white;
 
+  --section-padding-lr: 15vw;
+
   --section-img-small-max-height: 100px;
   --section-img-large-max-height: 200px;
 

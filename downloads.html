@@ -16,27 +16,27 @@
         </bb-single-column-section>
 
         <bb-single-column-section color="alternative-2" caret="right" spacerBottom="32" spacerTop="32">
-          <p slot="section-block-text">
-            Vous trouverez ici les packages pour démarrer le serveur Battlebots ainsi que les bibliothèques pour écrire votre IA en Python ou Java.
+          <p slot="section-block-body">
+            Vous trouverez ici les packages pour démarrer le serveur Battlebots ainsi que les bibliothèques pour écrire votre IA en Python, Java ou Javascript.
           </p>
         </bb-single-column-section>
 
-        <bb-two-columns-section color="alternative-1" caret="right" spacerBottom="32" spacerTop="32">
+        <bb-two-columns-section id="downloads-server" color="alternative-1" caret="right" spacerBottom="32" spacerTop="32">
           <bb-article slot="section-block-left">
             <h1 slot="article-title">Serveur</h1>
             <p slot="article-body">Serveur Python + ActiveMQ nécessaire pour faire fonctionner votre IA.</p>
           </bb-article>
           <div slot="section-block-right-center">
-
             <div class="w3-cell-row">
               <div class="w3-cell">
-                <img src="./assets/img/pixel.png" style="height: 32px;"/>
-                <bb-button href="#">Zip</bb-button>
-                <bb-button href="#">Docker</bb-button>
+                <img src="./assets/img/pixel.png" style="height: 64px;"/>
+                <bb-button href="https://github.com/TalLC/battlebot/releases/download/0.5.3/battlebots-server-package.zip">Zip</bb-button>
+              </div>
+              <div class="w3-cell">
+                <img src="./assets/img/pixel.png" style="height: 64px;"/>
+                <bb-button href="https://github.com/TalLC/battlebot-docker-image/releases/download/0.5.3/battlebots-0.5.3.tar">Docker</bb-button>
               </div>
             </div>
-
-
           </div>
         </bb-two-columns-section>
 
@@ -49,13 +49,33 @@
             <div class="w3-cell-row">
               <div class="w3-cell">
                 <img src="./assets/img/windows.png" style="height: 32px;"/>
-                <bb-button href="#">Python (Windows)</bb-button>
-                <bb-button href="#">Java (Windows)</bb-button>
+                <bb-button href="https://github.com/TalLC/battlebot-client-pytho/releases/download/0.5.2/battlebots-ide-python-windows.zip">Python (Windows)</bb-button>
+                <bb-button href="https://github.com/TalLC/battlebot-client-java/releases/download/0.5.2/battlebots-ide-java-windows.zip">Java (Windows)</bb-button>
               </div>
               <div class="w3-cell">
                 <img src="./assets/img/linux.png" style="height: 32px;"/>
-                <bb-button href="#">Python (Linux)</bb-button>
-                <bb-button href="#">Java (Linux)</bb-button>
+                <bb-button href="https://github.com/TalLC/battlebot-client-pytho/releases/download/0.5.2/battlebots-ide-python-linux.zip">Python (Linux)</bb-button>
+                <bb-button href="https://github.com/TalLC/battlebot-client-java/releases/download/0.5.2/battlebots-ide-java-linux.zip">Java (Linux)</bb-button>
+              </div>
+            </div>
+          </div>
+        </bb-two-columns-section>
+
+        <bb-two-columns-section id="downloads-libs" color="alternative-1" spacerBottom="32" spacerTop="32">
+          <bb-article slot="section-block-left">
+            <h1 slot="article-title">Bibliothèques client</h1>
+            <p slot="article-body">Bibliothèques Python et Java pour écrire votre IA avec l'IDE de votre choix et la connecter au serveur.</p>
+          </bb-article>
+          <div slot="section-block-right-center">
+            <div class="w3-cell-row">
+              <div class="w3-cell">
+                <img src="./assets/img/pixel.png" style="height: 32px;"/>
+                <bb-button href="https://github.com/TalLC/battlebot-client-pytho/releases/download/0.5.2/battlebotslib-python.zip">Python</bb-button>
+                <bb-button href="https://github.com/TalLC/battlebot-client-java/releases/download/0.5.2/battlebotslib-0.5.2-jar-with-dependencies.jar">Java</bb-button>
+              </div>
+              <div class="w3-cell">
+                <img src="./assets/img/pixel.png" style="height: 32px;"/>
+                <bb-button href="https://github.com/TalLC/battlebot-client-javascript/archive/refs/tags/0.5.2.zip">Javascript</bb-button>
               </div>
             </div>
           </div>

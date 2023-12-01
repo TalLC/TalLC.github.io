@@ -15,7 +15,6 @@ class HeaderElement extends LitElement {
       .header {
         min-height: var(--header-height);
         margin-top: var(--header-margin);
-        //margin-bottom: var(--header-margin);
       }
 
       img {
@@ -45,8 +44,8 @@ class HeaderElement extends LitElement {
               <div class="w3-dropdown-hover">
                 <a href="#" class="w3-button w3-text-white w3-black w3-hover-text-white w3-hover-none">Documentation</a>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                  <a href="#" class="w3-bar-item w3-button w3-text-white w3-black w3-hover-text-white w3-hover-black w3-border-black w3-bottombar w3-hover-border-red">Documentations serveur</a>
-                  <a href="#" class="w3-bar-item w3-button w3-text-white w3-black w3-hover-text-white w3-hover-black w3-border-black w3-bottombar w3-hover-border-red">Documentations client</a>
+                  <a href="doc-server.html" class="w3-bar-item w3-button w3-text-white w3-black w3-hover-text-white w3-hover-black w3-border-black w3-bottombar w3-hover-border-red">Documentations serveur</a>
+                  <a href="doc-client.html" class="w3-bar-item w3-button w3-text-white w3-black w3-hover-text-white w3-hover-black w3-border-black w3-bottombar w3-hover-border-red">Documentations client</a>
                 </div>
               </div>
               <a href="downloads.html" class="w3-bar-item w3-button w3-text-white w3-hover-text-white w3-hover-none w3-border-black w3-bottombar w3-hover-border-red">Téléchargements</a>  
