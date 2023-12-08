@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Téléchargements • Battlebots</title>
     <link href="./assets/css/project.css" rel="stylesheet">
     <script type="module" src="./js/project.js"></script>
   </head>
@@ -11,17 +12,17 @@
     
       <div id="content-wrap">
 
-        <bb-single-column-section color="normal" caret="left">
+        <bb-single-column-section color="normal" caret="left" spacerBottom="32" spacerTop="32">
           <h1 slot="section-block-title">Téléchargements</h1>
         </bb-single-column-section>
 
-        <bb-single-column-section color="alternative-2" caret="right" spacerBottom="32" spacerTop="32">
+        <bb-single-column-section color="alternative-2" caret="right" spacerBottom="128" spacerTop="128">
           <p slot="section-block-body">
             Vous trouverez ici les packages pour démarrer le serveur Battlebots ainsi que les bibliothèques pour écrire votre IA en Python, Java ou Javascript.
           </p>
         </bb-single-column-section>
 
-        <bb-two-columns-section id="downloads-server" color="alternative-1" caret="right" spacerBottom="32" spacerTop="32">
+        <bb-two-columns-section id="downloads-server" color="alternative-1" caret="right" spacerBottom="32" spacerTop="128">
           <bb-article slot="section-block-left">
             <h1 slot="article-title">Serveur</h1>
             <p slot="article-body">Serveur Python + ActiveMQ nécessaire pour faire fonctionner votre IA.</p>
@@ -61,7 +62,7 @@
           </div>
         </bb-two-columns-section>
 
-        <bb-two-columns-section id="downloads-libs" color="alternative-1" spacerBottom="32" spacerTop="32">
+        <bb-two-columns-section id="downloads-libs" color="alternative-1" spacerBottom="128" spacerTop="32">
           <bb-article slot="section-block-left">
             <h1 slot="article-title">Bibliothèques client</h1>
             <p slot="article-body">Bibliothèques Python et Java pour écrire votre IA avec l'IDE de votre choix et la connecter au serveur.</p>
@@ -80,7 +81,7 @@
             </div>
           </div>
         </bb-two-columns-section>
-        
+
         <bb-footer></bb-footer>
       </div>
     </div>

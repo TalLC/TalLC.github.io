@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>MQTT</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <link rel="stylesheet" type="text/css" href="../css/doc-iframe.css">
+<base target="_blank">
+<!-- Side navigation -->
+<div class="sidebar">
+  <h1>Sommaire</h1>
+  <ul>
+    <li><a target="_self" href="#servermqttidmessage">ServerMqttIdMessage</a></li>
+    <li><a target="_self" href="#botscannerdetectionmessage">BotScannerDetectionMessage</a></li>
+  </ul>
+</div>
+<!-- Page content -->
+<div class="main">
+<h1 id="mqtt">MQTT</h1>
+<p>Voici les messages reçus par le client sur la file de messages MQTT. MQTT est seulement utilisé pour recevoir des messages de ce que le bot a dans son champs de vision.</p>
+<h2 id="servermqttidmessage">ServerMqttIdMessage</h2>
+<p>Identifiant envoyé au client pour valider le fonctionnement de la connexion à MQTT. Cet identifiant est à renvoyer au serveur via l'API Rest.</p>
+<ul>
+<li>Queue: <strong>BATTLEBOT/BOT/{bot_id}</strong></li>
+<li>Producer: <strong>server</strong></li>
+<li>Consumer: <strong>client</strong></li>
+<li>Payload:</li>
+</ul>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;$schema&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;required&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;msg_type&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;source&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;data&quot;</span>
+    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;properties&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;msg_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Type of information&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;const&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;mqtt_id&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Where does the information comes from&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;const&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;server&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;data&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;object&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;required&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                <span class="hljs-string">&quot;value&quot;</span>
+            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;properties&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                <span class="hljs-attr">&quot;value&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                    <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;The mqtt id to return using Rest&quot;</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;str&quot;</span>
+                <span class="hljs-punctuation">}</span>
+            <span class="hljs-punctuation">}</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;examples&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;msg_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;mqtt_id&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;server&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;data&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;value&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;4242a3a5-3f4b-4e1f-bb4b-18d33f261d56&quot;</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h2 id="botscannerdetectionmessage">BotScannerDetectionMessage</h2>
+<p>Informations sur les objets détectés par le bot (type d'objet, distance, angle auquel ils se trouvent).</p>
+<ul>
+<li>Queue: <strong>BATTLEBOT/BOT/{bot_id}</strong></li>
+<li>Producer: <strong>server</strong></li>
+<li>Consumer: <strong>client</strong></li>
+<li>Payload:</li>
+</ul>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;$schema&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;object&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;required&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;source&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;msg_type&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;data&quot;</span>
+    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;properties&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;msg_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Type of information&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;const&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;object_detection&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Where does the information comes from&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;const&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;scanner&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;data&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;array&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;items&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Detected object(s)&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;object&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-attr">&quot;required&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                    <span class="hljs-string">&quot;from&quot;</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-string">&quot;to&quot;</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-string">&quot;object_type&quot;</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-string">&quot;name&quot;</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-string">&quot;distance&quot;</span>
+                <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-attr">&quot;properties&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                    <span class="hljs-attr">&quot;from&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                        <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Angle from which the object starts to be seen by the bot&quot;</span><span class="hljs-punctuation">,</span>
+                        <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;float&quot;</span>
+                    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-attr">&quot;to&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                        <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Angle from which the object is not visible anymore by the bot&quot;</span><span class="hljs-punctuation">,</span>
+                        <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;float&quot;</span>
+                    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-attr">&quot;object_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                        <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Type of the detected object&quot;</span><span class="hljs-punctuation">,</span>
+                        <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;string&quot;</span>
+                    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                        <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Name of the detected object&quot;</span><span class="hljs-punctuation">,</span>
+                        <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;string&quot;</span>
+                    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-attr">&quot;distance&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                        <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Distance from the bot to the object&quot;</span><span class="hljs-punctuation">,</span>
+                        <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;float&quot;</span>
+                    <span class="hljs-punctuation">}</span>
+                <span class="hljs-punctuation">}</span>
+            <span class="hljs-punctuation">}</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;examples&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;msg_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;object_detection&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;scanner&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;data&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                <span class="hljs-punctuation">{</span>
+                    <span class="hljs-attr">&quot;from&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">26.5</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-attr">&quot;to&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">31</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-attr">&quot;object_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;tree&quot;</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Tree&quot;</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-attr">&quot;distance&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">6.844473640068633</span>
+                <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-punctuation">{</span>
+                    <span class="hljs-attr">&quot;from&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">34</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-attr">&quot;to&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">39.5</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-attr">&quot;object_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;bot&quot;</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;MyBot01&quot;</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-attr">&quot;distance&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">5.777348380771669</span>
+                <span class="hljs-punctuation">}</span>
+            <span class="hljs-punctuation">]</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<hr>
+</div>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>

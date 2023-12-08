@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Documentation API • Battlebots</title>
+    <link href="./assets/css/doc-api.css" rel="stylesheet">
+    <script type="module" src="./js/doc-api.js"></script>
+  </head>
+  <body>
+    <div id="page-container">
+
+      <bb-header id="header"></bb-header>
+    
+      <div id="content-wrap">
+
+        <bb-single-column-section color="normal" caret="left" spacerBottom="32" spacerTop="32">
+          <h1 slot="section-block-title">Documentation API</h1>
+        </bb-single-column-section>
+
+        <bb-single-column-section color="alternative-2" spacerBottom="32" spacerTop="128">
+          <p slot="section-block-body">
+            Pour interagir avec le serveur, 3 canaux sont utilisés :
+            <ul>
+              <li>API Rest : elle permet de contrôler l'IA lorsque la partie est en cours</li>
+              <li>STOMP : permet de recevoir les messages d'information de partie, les caractéristiques du bot ainsi que les changements de points de vie du bot</li>
+              <li>MQTT : tout ce que l'IA détecte en jeu est renvoyé via STOMP au format json</li>
+            </ul>
+            Vous trouverez ci-dessous le détail des messages échangés avec ces API.
+          </p>
+        </bb-single-column-section>
+
+        <div class="w3-row tabheader">
+          <a href="javascript:void(0)" onclick="openTab(event, 'rest');">
+            <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">REST</div>
+          </a>
+          <a href="javascript:void(0)" onclick="openTab(event, 'stomp');">
+            <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">STOMP</div>
+          </a>
+          <a href="javascript:void(0)" onclick="openTab(event, 'mqtt');">
+            <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">MQTT</div>
+          </a>
+        </div>
+      
+        <div id="rest" class="w3-container w3-gray tabcontent" style="display:none; height: 100vh; width: 100vw;">
+          <iframe src="./assets/doc/api-rest.html" style="height:100%; width:100%; border:none;" title="Documentation API"></iframe>
+        </div>
+      
+        <div id="stomp" class="w3-container w3-gray tabcontent" style="display:none; height: 100vh; width: 100vw;">
+          <iframe src="./assets/doc/api-stomp.html" style="height:100%; width:100%; border:none;" title="Documentation API"></iframe>
+        </div>
+      
+        <div id="mqtt" class="w3-container w3-gray tabcontent" style="display:none; height: 100vh; width: 100vw;">
+          <iframe src="./assets/doc/api-mqtt.html" style="height:100%; width:100%; border:none;" title="Documentation API"></iframe>
+        </div>
+
+        <bb-footer></bb-footer>
+      </div>
+    </div>
+
+
+    <script>
+      function openTab(evt, tabName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" w3-border-red", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.firstElementChild.className += " w3-border-red";
+      }
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,14 @@
+@import url(main.css);
+
+.tabheader {
+  padding-left: var(--section-padding-lr);
+  padding-right: var(--section-padding-lr);
+}
+
+.tabcontent {
+  padding-left: var(--section-padding-lr);
+  padding-right: var(--section-padding-lr);
+  padding-top: 0;
+  padding-bottom: 0;
+  text-align: justify;
+}
