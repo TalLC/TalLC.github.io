@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Documentation client • Battlebots</title>
+    <link href="./assets/css/doc-client.css" rel="stylesheet">
+    <script type="module" src="./js/doc-client.js"></script>
+  </head>
+  <body>
+    <div id="page-container">
+
+      <bb-header id="header"></bb-header>
+    
+      <div id="content-wrap">
+
+        <bb-single-column-section color="normal" caret="left" spacerBottom="32" spacerTop="32">
+          <h1 slot="section-block-title">Documentation client</h1>
+        </bb-single-column-section>
+
+        <bb-single-column-section color="alternative-2" spacerBottom="32" spacerTop="128">
+          <p slot="section-block-body">
+            Il est recommandé d'utiliser les clients préconfigurés qui sont prêt à être utilisés et embarquent une documentation de mise en route.
+          </p>
+        </bb-single-column-section>
+
+        <div class="w3-row tabheader">
+          <a href="javascript:void(0)" onclick="openTab(event, 'python');">
+            <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Python</div>
+          </a>
+        </div>
+      
+        <div id="python" class="w3-container w3-gray tabcontent" style="display:none; height: 100vh; width: 100vw;">
+          <iframe src="./assets/doc/client-python.html" style="height:100%; width:100%; border:none;" title="Documentation client"></iframe>
+        </div>
+
+        <bb-single-column-section color="alternative-2" spacerBottom="32" spacerTop="32">
+          <p slot="section-block-body">
+            Pour relancer une partie sans avoir à relancer tous les exécutables, faire <strong>Ctrl + C</strong> dans le navigateur et taper le mot de passe admin du serveur. Au bout de 5 secondes, le navigateur rechargera la page pour afficher l'écran d'attente. Si ce n'est pas le cas vous pouvez recharger la page manuellement.
+            N'oubliez pas que pour tester votre IA, vous pouvez démarrer une partie avec de faux joueurs sans IA.
+          </p>
+        </bb-single-column-section>
+
+        <bb-footer></bb-footer>
+      </div>
+    </div>
+
+
+    <script>
+      function openTab(evt, tabName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" w3-border-red", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.firstElementChild.className += " w3-border-red";
+      }
+    </script>
+
+  </body>
+</html>
