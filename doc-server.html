@@ -23,28 +23,29 @@
 
         <div class="w3-row tabheader">
           <a href="javascript:void(0)" onclick="openTab(event, 'manual');">
-            <div class="w3-half tablink w3-bottombar w3-hover-light-grey w3-padding">Installation manuelle</div>
+            <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Installation classique</div>
           </a>
           <a href="javascript:void(0)" onclick="openTab(event, 'docker');">
-            <div class="w3-half tablink w3-bottombar w3-hover-light-grey w3-padding">Lancement via Docker</div>
+            <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Installation via Docker</div>
+          </a>
+          <a href="javascript:void(0)" onclick="openTab(event, 'config');">
+            <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Configuration</div>
           </a>
         </div>
       
-        <div id="manual" class="w3-container w3-gray tabcontent" style="display:none; min-height: 100vh;">
-          <!-- <bb-article slot="section-block-right">
-            <h2 slot="article-title">Installation manuelle</h2>
-            <span slot="article-body">
-              <p>Nous proposons une arène de combat virtuelle avec une API pour interagir avec votre robot.</p>
-              <p>A vous d'écrire l'IA qui va diriger votre robot et le mener à la victoire !</p>
-            </span>
-          </bb-article> -->
+        <div id="manual" class="w3-container w3-gray tabcontent" style="display:none; height: 100vh; width: 100vw;">
+          <iframe src="./assets/doc/installation-classique.html" style="height:100%; width:100%; border:none;" title="Documentation serveur"></iframe>
         </div>
       
-        <div id="docker" class="w3-container w3-gray tabcontent" style="display:none; min-height: 100vh;">
-          <iframe src="./assets/doc/Configuration du serveur.html" style="height:100vh;width:100vw;border:none;" title="Documentation serveur"></iframe>
+        <div id="docker" class="w3-container w3-gray tabcontent" style="display:none; height: 100vh; width: 100vw;">
+          <iframe src="./assets/doc/installation-docker.html" style="height:100%; width:100%; border:none;" title="Documentation serveur"></iframe>
+        </div>
+      
+        <div id="config" class="w3-container w3-gray tabcontent" style="display:none; height: 100vh; width: 100vw;">
+          <iframe src="./assets/doc/config-server.html" style="height:100%; width:100%; border:none;" title="Documentation serveur"></iframe>
         </div>
 
-        <footer id="footer">CGI</footer>
+        <bb-footer></bb-footer>
       </div>
     </div>
 

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Installation du serveur</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <link rel="stylesheet" type="text/css" href="../css/doc-iframe.css">
+<base target="_blank">
+<!-- Side navigation -->
+<div class="sidebar">
+  <h1>Sommaire</h1>
+  <ul>
+    <li><a target="_self" href="#installation-par-docker">Installation par Docker</a>
+      <ul>
+        <li><a target="_self" href="#chargement-du-fichier-image">Chargement du fichier image</a></li>
+        <li><a target="_self" href="#d%C3%A9marrage-dun-conteneur-en-ligne-de-commande">Démarrage d'un conteneur en ligne de commande</a></li>
+        <li><a target="_self" href="#d%C3%A9marrage-dun-conteneur-avec-docker-compose">Démarrage d'un conteneur avec docker compose</a></li>
+        <li><a target="_self" href="#debug">Debug</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<!-- Page content -->
+<div class="main">
+<h1 id="installation-du-serveur">Installation du serveur</h1>
+<h2 id="installation-par-docker">Installation par Docker</h2>
+<p>Vous devez disposer d'une installation Docker permettant de lancer des conteneurs Linux au préalable.</p>
+<h3 id="chargement-du-fichier-image">Chargement du fichier image</h3>
+<p>Importez l'image Docker à partir du fichier tar en utilisant la commande <code>docker load</code> :</p>
+<pre><code class="language-sh">docker load -i battlebots-0.5.2.tar
+</code></pre>
+<h3 id="démarrage-dun-conteneur-en-ligne-de-commande">Démarrage d'un conteneur en ligne de commande</h3>
+<p>Pour démarrer un conteneur à partir de l'image Docker, utilisez la commande <code>docker run</code> :</p>
+<pre><code class="language-sh">docker run -d --<span class="hljs-built_in">rm</span> -p 8000:8000 -p 61613:61613 -p 1883:1883 battlebots:0.5.2
+</code></pre>
+<p>Explication des options utilisées :</p>
+<ul>
+<li>-d : Détache le conteneur et le fait s'exécuter en arrière-plan.</li>
+<li>-p 8000:8000 : (serveur web + REST) Mappe le port local 8000 sur le port 8000 du conteneur.</li>
+<li>-p 61613:61613 : (serveur STOMP) Mappe le port local 61613 sur le port 61613 du conteneur.</li>
+<li>-p 1883:1883 : (serveur MQTT) Mappe le port local 1883 sur le port 1883 du conteneur.</li>
+<li>battlebots:0.5.2 : Spécifie le nom et le tag de l'image à utiliser pour démarrer le conteneur.</li>
+</ul>
+<h3 id="démarrage-dun-conteneur-avec-docker-compose">Démarrage d'un conteneur avec docker compose</h3>
+<p>Si vous avez Docker compose et souhaitez l'utiliser :</p>
+<ul>
+<li>Créez un fichier nommé <code>docker-compose.yml</code> dans un répertoire de votre choix :</li>
+</ul>
+<pre><code class="language-yml"><span class="hljs-attr">version:</span> <span class="hljs-string">&#x27;3&#x27;</span>
+<span class="hljs-attr">services:</span>
+  <span class="hljs-attr">battlebots:</span>
+    <span class="hljs-attr">image:</span> <span class="hljs-string">battlebots:0.5.2</span>
+    <span class="hljs-attr">ports:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-number">8000</span><span class="hljs-string">:8000</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-number">61613</span><span class="hljs-string">:61613</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-number">1883</span><span class="hljs-string">:1883</span>
+    <span class="hljs-attr">environment:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">BATTLEBOTS_DEBUG=false</span>
+</code></pre>
+<ul>
+<li>Placez-vous dans le répertoire où se trouve le fichier <code>docker-compose.yml</code></li>
+<li>Exécutez la commande suivante pour démarrer le conteneur en utilisant Docker Compose :</li>
+</ul>
+<pre><code class="language-sh">docker-compose up -d
+</code></pre>
+<p>Explication des options utilisées :</p>
+<ul>
+<li>-d : Détache le conteneur et le fait s'exécuter en arrière-plan.</li>
+</ul>
+<h3 id="debug">Debug</h3>
+<p>Pour activer le mode débug, passer la variable d'environnement <code>BATTLEBOTS_DEBUG</code> à <code>true</code>.</p>
+<p>En ligne de commande :</p>
+<pre><code class="language-sh">docker run -d --<span class="hljs-built_in">rm</span> -p 8000:8000 -p 61613:61613 -p 1883:1883 -e BATTLEBOTS_DEBUG=<span class="hljs-literal">true</span> battlebots:0.5.2
+</code></pre>
+<p>Dans le fichier <code>docker-compose.yml</code></p>
+<pre><code class="language-yml">    <span class="hljs-string">...</span>
+    <span class="hljs-attr">environment:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">BATTLEBOTS_DEBUG=true</span>
+</code></pre>
+<hr>
+</div>
+
+        
+        
+    </body>
+    </html>
