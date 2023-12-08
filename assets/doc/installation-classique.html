@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Installation du serveur</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <link rel="stylesheet" type="text/css" href="../css/doc-iframe.css">
+<base target="_blank">
+<!-- Side navigation -->
+<div class="sidebar">
+  <h1>Sommaire</h1>
+  <ul>
+    <li><a target="_self" href="#installation-par-scripts">Installation par scripts</a></li>
+    <li><a target="_self" href="#installation-manuelle">Installation manuelle</a>
+      <ul>
+        <li><a target="_self" href="#pr%C3%A9requis">Prérequis</a></li>
+        <li><a target="_self" href="#environnement-virtuel-python">Environnement virtuel Python</a></li>
+        <li><a target="_self" href="#d%C3%A9marrer-le-serveur">Démarrer le serveur</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<!-- Page content -->
+<div class="main">
+<h1 id="installation-du-serveur">Installation du serveur</h1>
+<h2 id="installation-par-scripts">Installation par scripts</h2>
+<p>Vous devez avoir obtenu le fichier <code>battlebots-server-package.zip</code> au préalable. Ce fichier contient tout ce qu'il faut pour faire tourner le serveur Battlebots en local.</p>
+<blockquote>
+<p>⚠️ L'installation par script n'est actuellement disponible que pour <strong>Windows</strong>.</p>
+</blockquote>
+<ul>
+<li>Décompressez le fichier <code>battlebots-server-package.zip</code> dans un dossier de votre choix</li>
+<li>Lancer le fichier <code>install-server.bat</code> qui se trouve dans le dossier décompressé</li>
+<li>Lancer les serveurs Python et ActiveMQ via <code>start-server.bat</code> ou <code>start-server-debug.bat</code> suivant si vous voulez lancer en mode debug ou non (le mode debug est largement recommandé pour le développement)</li>
+</ul>
+<p>Si tout fonctionne, vous devriez avoir 2 invites de commandes Windows de lancés :</p>
+<ul>
+<li>ActiveMQ démarré via Java</li>
+<li>Serveur python Battlebots</li>
+</ul>
+<p>A partir de là vous devriez accéder à l'interface web via <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>.</p>
+<h2 id="installation-manuelle">Installation manuelle</h2>
+<p>Vous devez avoir obtenu le fichier <code>battlebots-server-package.zip</code> au préalable. Ce fichier contient tout ce qu'il faut pour faire tourner le serveur Battlebots en local.</p>
+<p>Cette méthode d'installation n'est pas recommandée. Elle est principalement présente pour expliquer sur quoi repose le serveur et pour aider si il doit être installé sur un OS différent.</p>
+<h3 id="prérequis">Prérequis</h3>
+<h4 id="activemq-5166">ActiveMQ 5.16.6</h4>
+<p>ActiveMQ sert les brokers de messages utilisés par le serveur pour envoyer des informations aux IA clientes. Les deux brokers de messages utilisés sont <code>STOMP</code> et <code>MQTT</code>.</p>
+<p>ActiveMQ 5.16.6 est disponible ici (Windows et Linux) :</p>
+<ul>
+<li><a href="https://activemq.apache.org/components/classic/download/">https://activemq.apache.org/components/classic/download/</a></li>
+</ul>
+<p>C'est un zip à extraire dans le dossier de votre choix.</p>
+<h4 id="java-18">Java 1.8</h4>
+<p>Java 1.8 est nécessaire pour faire fonctionner les brokers de messages de ActiveMQ.</p>
+<p>Il peut être téléchargé ici en version installable (Windows, macOS et Linux) :</p>
+<ul>
+<li>Windows <a href="https://cfdownload.adobe.com/pub/adobe/coldfusion/java/java8/java8u361/jre/jre-8u361-windows-x64.exe">jre-8u361-windows-x64.exe</a></li>
+<li>Linux <a href="https://cfdownload.adobe.com/pub/adobe/coldfusion/java/java8/java8u361/jre/jre-8u361-linux-x64.rpm">jre-8u361-linux-x64.rpm</a></li>
+<li>MacOs <a href="https://cfdownload.adobe.com/pub/adobe/coldfusion/java/java8/java8u361/jre/jre-8u361-macosx-x64.dmg">jre-8u361-macosx-x64.dmg</a></li>
+</ul>
+<p>Ou en version portable :</p>
+<ul>
+<li>Windows <a href="https://sourceforge.net/projects/portableapps/files/Java/">jre-8u371-windows-x64.tar.gz</a></li>
+<li>Linux  <a href="https://cfdownload.adobe.com/pub/adobe/coldfusion/java/java8/java8u361/jre/jre-8u361-linux-x64.tar.gz">jre-8u361-linux-x64.tar.gz</a></li>
+</ul>
+<h4 id="python-310">Python 3.10</h4>
+<p>Il vous faut disposer d'une installation Python complète version <strong>3.10</strong> minimum (les versions &quot;embeddable package&quot; officielles ne sont <strong>pas suffisantes</strong>).</p>
+<p>Il peut être téléchargé ici en version installable (Windows et macOS) :</p>
+<ul>
+<li>Multi-plateformes <a href="https://www.python.org/downloads/release/python-31010/">https://www.python.org/downloads/release/python-31010/</a></li>
+</ul>
+<p>Ou en version portable :</p>
+<ul>
+<li>Windows <a href="https://github.com/winpython/winpython/releases/tag/5.3.20221233">https://github.com/winpython/winpython/releases/tag/5.3.20221233</a> (la release <code>Winpython64-3.10.9.0dot</code> est suffisante)</li>
+<li>MacOs <a href="https://github.com/indygreg/python-build-standalone/releases/tag/20230507">https://github.com/indygreg/python-build-standalone/releases/tag/20230507</a> (release <code>cpython-3.10.11+20230507-&lt;architecture&gt;-apple-darwin-install_only.tar.gz</code>)</li>
+<li>Linux <a href="https://github.com/indygreg/python-build-standalone/releases/tag/20230507">https://github.com/indygreg/python-build-standalone/releases/tag/20230507</a> (release <code>cpython-3.10.11+20230507-&lt;architecture&gt;-unknown-linux-gnu-install_only.tar.gz</code>)</li>
+</ul>
+<h3 id="environnement-virtuel-python">Environnement virtuel Python</h3>
+<ul>
+<li>Décompressez le fichier <code>battlebots-server-package.zip</code> dans un dossier de votre choix</li>
+<li>Ouvrez un terminal dans ce dossier (le dossier doit contenir le fichier <code>main.py</code>) et créez un nouvel environnement virtuel :
+<ul>
+<li>Windows :
+<ul>
+<li><code>&lt;chemin vers votre binaire&gt;\python.exe -m venv venv</code></li>
+</ul>
+</li>
+<li>Linux :
+<ul>
+<li><code>&lt;chemin vers votre binaire&gt;/python -m venv venv</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Installer les libs nécessaires dans le venv créé :
+<ul>
+<li>Windows :
+<ul>
+<li><code>venv\Scripts\pip install -r requirements.txt</code></li>
+</ul>
+</li>
+<li>Linux :
+<ul>
+<li><code>venv/bin/pip install -r requirements.txt</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="démarrer-le-serveur">Démarrer le serveur</h3>
+<h4 id="activemq">ActiveMQ</h4>
+<p>On commence par démarrer le serveur ActiveMQ.
+Toujours dans le dossier principal de Battlebots, ouvrez un nouveau terminal.</p>
+<ul>
+<li>Définir la variable <code>JAVA_HOME</code> sur votre installation de Java 1.8 :
+<ul>
+<li>Windows :
+<ul>
+<li><code>set JAVA_HOME=&quot;&lt;chemin absolu vers le dossier du JRE 1.8&gt;&quot;</code></li>
+</ul>
+</li>
+<li>Linux :
+<ul>
+<li><code>export JAVA_HOME=&lt;chemin absolu vers le dossier du JRE 1.8&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Lancer le serveur :
+<ul>
+<li>Windows :
+<ul>
+<li><code>third-party\activemq\bin\activemq.bat start</code></li>
+</ul>
+</li>
+<li>Linux :
+<ul>
+<li><code>third-party/activemq/bin/activemq start</code> (ajoutez le droit d'exécution sur le fichier si nécessaire)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="python">Python</h4>
+<p>Une fois ActiveMQ lancé, on peut démarrer le serveur Python.</p>
+<ul>
+<li>Windows :
+<ul>
+<li><code>venv\Scripts\python.exe -m uvicorn main:app --port 8000 --reload --timeout-keep-alive 30</code></li>
+</ul>
+</li>
+<li>Unix :
+<ul>
+<li><code>venv/bin/python -m uvicorn main:app --port 8000 --reload --timeout-keep-alive 30</code></li>
+</ul>
+</li>
+</ul>
+<p>A partir de là vous devriez accéder à l'interface web via <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>.</p>
+<hr>
+</div>
+
+        
+        
+    </body>
+    </html>

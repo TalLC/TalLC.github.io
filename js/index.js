@@ -1,4 +1,5 @@
 import "./components/header.js";
+import "./components/footer.js";
 import "./components/article.js";
 import "./components/twoColumnsSection.js";
 import "./components/singleColumnSection.js";
