@@ -91,7 +91,6 @@ Démarrez le serveur en mode debug et lancez l'interface du jeu ([http://127.0.0
 Sur la page d'attente de Battlebots, vous remarquerez un bouton `Connecter un bot` en bas à droite. Ce bouton permet d'ajouter un bot sans IA à la partie :
 
 <img src="../img/debug-add-bot.png"> 
-<img src="https://tallc.github.io/assets/img/debug-add-bot.png"> 
 
 Il prendra la première équipe disponible sans joueurs.
 
@@ -101,7 +100,7 @@ Si vous n'avez pas ce bouton, c'est que le serveur n'est pas lancé en mode debu
 
 Double cliquez sur un bot à l'écran, une télécommande va s'afficher en bas de l'écran pour prendre le contrôle du bot.
 
-<img src="https://tallc.github.io/assets/img/debug_remote.png">
+<img src="../img/debug_remote.png">
 
 ## Troubleshooting
 
